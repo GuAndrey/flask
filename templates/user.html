@@ -1,10 +1,21 @@
 {% if name != session['account'] %}
-<p>Something went wrong, please go to Log In / 
-    <a href={{ url_for('index') }}>Sign Up</a>
-</p>
+    <p>Something went wrong, please go to 
+        <a href={{ url_for('login') }}>Log In</a> / 
+        <a href={{ url_for('index') }}>Sign Up</a>
+    </p>
+
 {% else %}
-<h1>Test</h1>
-<p>Hello, {{ name|title }}!</p>
-<p>What did you eat for breakfast?</p>
-<a href={{ url_for('logout') }}>Log Out</a>
+
+    <h1>TODO APP</h1>
+    <p>Hello, {{ name|title }}!</p>
+    <p>What did you eat for breakfast?</p>
+
+    <ol>
+    {% for task in tasks %}
+    <li>{{ task.title }}</li>
+    {% endfor %}
+    </ol>
+
+    <a href={{ url_for('logout') }}>Log Out</a>
+
 {% endif %}

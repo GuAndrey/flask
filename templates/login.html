@@ -1,0 +1,23 @@
+<h1>TODO APP</h1>
+
+
+{% if error %}
+<p>
+    Account doesn't exist. Try again or go to the
+    <a href='/'>Sign Up</a> page
+</p>
+{% endif %}
+
+
+<form method="POST">
+    <label>Email</label>
+    <input type="email" maxlength="30" name="email" required>
+    <br>
+    <label>Password</label>
+    <input type="password" minlength="6" maxlength="20" name="password" required>
+    <br>
+    <input type="checkbox" name="remember">
+    <label>Remember Me</label>
+    <br>
+    <input type="submit" value="Log In">
+</form>

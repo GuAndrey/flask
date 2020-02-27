@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-from models import add_user
+from models import add_user, check_user, get_user_tasks
 from sqlalchemy.exc import IntegrityError
-from models import AccountExists
+from models import AccountExists, AccountNotFound
 
 app = Flask(__name__)
 app.secret_key = 'themostsecuredpasswordinthewholeworld'
@@ -23,9 +23,26 @@ def index():
         return redirect('/users/' + name)
     return render_template('index.html')
 
+
 @app.route('/users/<name>')
 def user_page(name):
-    return render_template('user.html', name=name)
+    user_tasks = get_user_tasks(name)
+    return render_template('user.html', name=name, tasks=user_tasks)
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+        try:
+            name = check_user(email, password)
+        except AccountNotFound:
+            return render_template('login.html', error=True)
+        session['account'] = name
+        return redirect('/users/' + name)
+    return render_template('login.html')
+
 
 @app.route('/logout')
 def logout():
