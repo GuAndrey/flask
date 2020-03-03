@@ -99,3 +99,22 @@ def create_user_task(name, title, details='', deadline=None):
     user_tasks.append(new_task)
     session.commit()
     session.close()
+
+
+def change_user_task(username, id):
+    engine = create_engine('sqlite:///app.db', echo=True)
+    session = Session(bind=engine)
+    user = session.query(User).filter_by(username=username).first()
+    user_tasks = user.tasks
+    task_to_change = user_tasks[id-1]
+    task_to_change.status = not(task_to_change.status)
+    session.commit()
+    session.close()
+
+def remove_user_task(username, id):
+    engine = create_engine('sqlite:///app.db', echo=True)
+    session = Session(bind=engine)
+    user = session.query(User).filter_by(username=username).first()
+    task_to_remove = user.tasks[id-1]
+    session.delete(task_to_remove)
+    session.commit()

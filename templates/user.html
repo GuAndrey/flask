@@ -12,10 +12,15 @@
 
     <ol>
     {% for task in tasks %}
-    <li>{{ task.title }}</li>
+    <li id={{ loop.index|string }}>
+        {{ task.title }} {{ task.status }}
+        <a href={{ "/status/" + loop.index|string }}>Change Status</a>
+        <a href="#" onclick=remove_task(event)>Remove</a>
+    </li>
     {% endfor %}
     </ol>
 
     <a href={{ url_for('logout') }}>Log Out</a>
 
+    <script src={{ url_for('static', filename='script.js') }}></script>
 {% endif %}
