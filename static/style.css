@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather|Playfair+Display:700&display=swap&subset=cyrillic');
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Merriweather', serif;
+    background: center / cover no-repeat url(https://papers.co/wallpaper/papers.co-mr26-mountain-art-fog-nature-white-36-3840x2400-4k-wallpaper.jpg);
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+}
+
+form {
+    width: 20%;
+    margin: 10px auto;
+    padding: 15px 5px;
+    background: rgba(170, 147, 105, 0.493);
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 1px 1px rgba(0, 0, 0, 0.835);
+}
+
+form * {
+    display: block;
+}
+
+input {
+    width: 80%;
+    margin: 0px auto;
+    line-height: 28px;
+    border-radius: 8px;
+    outline: none;
+    background: rgba(255,255,255,0.5);
+    border: 0;
+    text-align: center;
+}
+
+input[type="submit"] {
+    width: 60%;
+    margin: 10px auto;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    filter: drop-shadow(1px 2px rgb(42, 112, 42));
+    transform: scale(0.8);
+    transition: filter 5s;
+    transition: transform 3s;
+}
+
+a {
+    text-align: center;
+    color: rgb(60, 60, 158);
+    text-decoration: none;
+    font-size: 0.6rem;
+}
+
+label {
+    padding-bottom: 6px;
+}

@@ -1,5 +1,11 @@
-<h1>TODO APP</h1>
+<head>
+    <link 
+        href={{ url_for('static', filename='style.css') }}
+        rel='stylesheet'
+    >
+</head>
 
+<h1>TODO APP</h1>
 
 {% if error == 'passwords_dont_match' %}
 <p>Sorry, seems like passwords you entered don't match. Try again</p>
@@ -10,16 +16,41 @@
 
 <form method="POST">
     <label>Name</label>
-    <input minlength="5" maxlength="20" name="name" required>
+    <input 
+        minlength="5" 
+        maxlength="20" 
+        name="name"
+        placeholder="valid username (one word, 5+ symbols)" 
+        required
+    >
     <br>
     <label>Email</label>
-    <input type="email" maxlength="30" name="email" required>
+    <input 
+        type="email" 
+        maxlength="30" 
+        name="email" 
+        placeholder="enter a valid email"
+        required
+    >
     <br>
     <label>Password</label>
-    <input type="password" minlength="6" maxlength="20" name="password" required>
+    <input 
+        type="password" 
+        minlength="6" 
+        maxlength="20" 
+        name="password"
+        placeholder="6+ symbols"
+        required>
     <br>
     <label>Password</label>
-    <input type="password" minlength="6" maxlength="20" name="password_check" required>
+    <input 
+        type="password" 
+        minlength="6" 
+        maxlength="20" 
+        name="password_check"
+        placeholder="repeat password" 
+        required
+    >
     <br>
     <input type="submit" value="Send!">
     <a href="/login">Already have Account</a>
