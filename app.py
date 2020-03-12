@@ -25,6 +25,7 @@ def index():
     return render_template('index.html')
 
 
+
 @app.route('/users/<name>')
 def user_page(name):
     user_tasks = get_user_tasks(name)
