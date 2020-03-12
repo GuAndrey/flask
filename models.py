@@ -38,7 +38,7 @@ class User(Abstract, Base):
 
 class Task(Abstract, Base):
     __tablename__ = 'tasks'
-    title = Column(String(20), nullable=False, unique=True)
+    title = Column(String(20), nullable=False)
     author_id = Column(Integer, ForeignKey('users.id', ondelete='CASCADE'), nullable=False)
     details = Column(Text)
     deadline = Column(Date)
