@@ -90,10 +90,10 @@ def get_user_tasks(name):
     return user_tasks
 
 
-def create_user_task(name, title, details='', deadline=None):
+def create_user_task(author_id, title, details='', deadline=None):
     engine = create_engine('sqlite:///app.db', echo=True)
     session = Session(bind=engine)
-    user = session.query(User).filter_by(username=name).first()
+    user = session.query(User).get(author_id)
     user_tasks = user.tasks
     new_task = Task(title=title, details=details, deadline=deadline)
     user_tasks.append(new_task)
