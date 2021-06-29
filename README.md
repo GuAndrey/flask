@@ -1,1 +1,1 @@
-# TODO-сайт на Flask
+# TODO сайт на Flask
